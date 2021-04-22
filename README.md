@@ -48,16 +48,19 @@ Notification utility        | Yes           | To get the information about the o
 
 ### List the Test Cases
 
-Write tests in the form of `<expected output or action>` from `<input>` / when `<event>`
-
 Add to these tests:
 
 1. Write minimum and maximum to the PDF from a csv containing positive and negative readings
-1. Write "Invalid input" to the PDF when the csv doesn't contain expected data
-1. _enter a test
-1. _enter a test
+2. Write "Invalid input" to the PDF when the csv doesn't contain expected data
+3. For "no breaches" the default count of breaches should be returned '0/Null'
+4. Check whether the input file is .csv or not
+5. Write reading along with date and time to the PDF if the trends increase continuously if its been 30 minutes
+6. If the reading is not increased write to the PDF "No Trends".
+7. Write to the PDFs total count of breaches
+8. Write an appropriate Message to the console and verify it
+9. Write an appropriate format for sending a mail 
+10. 
 
-(add more)
 
 ### Recognize Fakes and Reality
 
@@ -73,4 +76,4 @@ Notify report availability | pdf file     | Console/ email              | Fake t
 Report inaccessible server | csv file     | No access to the server     | Fake
 Find minimum and maximum   | csv data     | Return minimum and maximum values              | None - it's a pure function
 Detect trend               | csv data     | Return date and time         | None - it's a pure function
-Write to PDF               | csv data     | Minimum, Maximum, Count_Of_breaches, Date,Time & Reading of trend               | Fake
+Write to PDF               | csv data     | Minimum, Maximum, count of breaches, Date, Time & record trend               | Fake
