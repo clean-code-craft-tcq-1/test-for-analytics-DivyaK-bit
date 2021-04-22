@@ -27,10 +27,11 @@ Notification must be sent when a new report is available.
 List the dependencies of the Analysis-functionality.
 
 1. Access to the Server containing the telemetrics in a csv file
-1. _enter dependency
-1. _enter dependency
+2. Having a Notification function to nofity the off - limit values via. email or console
+3. Function/ method to support creation of PDF
+4. Access to read csv for calculation purpose
+5. Accessing date and time form the system
 
-(add more if needed)
 
 ### Mark the System Boundary
 
@@ -40,23 +41,24 @@ What is included in the software unit-test? What is not? Fill this table.
 |---------------------------|---------------|---
 Battery Data-accuracy       | No            | We do not test the accuracy of data
 Computation of maximum      | Yes           | This is part of the software being developed
-Off-the-shelf PDF converter | _enter Yes/No | _enter reasoning
-Counting the breaches       | _enter Yes/No | _enter reasoning
-Detecting trends            | _enter Yes/No | _enter reasoning
-Notification utility        | _enter Yes/No | _enter reasoning
+Off-the-shelf PDF converter | Yes           | To store the analysis from the csv to the PDF
+Counting the breaches       | Yes           | For checking when When battery parameters crossess the threshold
+Detecting trends            | Yes           | Whenever the reading continuously increases for 30 minutes, for Date and Time
+Notification utility        | Yes           | To get the information about the off limits/ high values so that appropriate actions can be taken for the battery
 
 ### List the Test Cases
-
-Write tests in the form of `<expected output or action>` from `<input>` / when `<event>`
 
 Add to these tests:
 
 1. Write minimum and maximum to the PDF from a csv containing positive and negative readings
-1. Write "Invalid input" to the PDF when the csv doesn't contain expected data
-1. _enter a test
-1. _enter a test
-
-(add more)
+2. Write "Invalid input" to the PDF when the csv doesn't contain expected data
+3. For "no breaches" the default count of breaches should be returned '0/Null'
+4. Check whether the input file is .csv or not
+5. Write reading along with date and time to the PDF if the trends increase continuously if its been 30 minutes
+6. If the reading is not increased write to the PDF "No Trends".
+7. Write to the PDFs total count of breaches
+8. Write an appropriate Message to the console and verify it
+9. Write an appropriate format for sending a mail 
 
 ### Recognize Fakes and Reality
 
@@ -68,8 +70,8 @@ Enter one part that's real and another part that's faked/mocked.
 |--------------------------|--------------|-----------------------------|---
 Read input from server     | csv file     | internal data-structure     | Fake the server store
 Validate input             | csv data     | valid / invalid             | None - it's a pure function
-Notify report availability | _enter input | _enter output               | _enter fake or mock
-Report inaccessible server | _enter input | _enter output               | _enter fake or mock
-Find minimum and maximum   | _enter input | _enter output               | _enter fake or mock
-Detect trend               | _enter input | _enter output               | _enter fake or mock
-Write to PDF               | _enter input | _enter output               | _enter fake or mock
+Notify report availability | pdf file     | Console/ email              | Fake the notification
+Report inaccessible server | csv file     | No access to the server     | Fake
+Find minimum and maximum   | csv data     | Return minimum and maximum values              | None - it's a pure function
+Detect trend               | csv data     | Return date and time         | None - it's a pure function
+Write to PDF               | csv data     | Minimum, Maximum, count of breaches, Date, Time & record trend               | Fake
