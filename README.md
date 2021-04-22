@@ -59,8 +59,6 @@ Add to these tests:
 7. Write to the PDFs total count of breaches
 8. Write an appropriate Message to the console and verify it
 9. Write an appropriate format for sending a mail 
-10. 
-
 
 ### Recognize Fakes and Reality
 
