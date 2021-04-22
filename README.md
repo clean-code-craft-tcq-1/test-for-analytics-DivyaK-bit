@@ -27,10 +27,11 @@ Notification must be sent when a new report is available.
 List the dependencies of the Analysis-functionality.
 
 1. Access to the Server containing the telemetrics in a csv file
-1. _enter dependency
-1. _enter dependency
+2. Having a Notification function to nofity the off - limit values via. email or console
+3. Function/ method to support creation of PDF
+4. Access to read csv for calculation purpose
+5. Accessing date and time form the system
 
-(add more if needed)
 
 ### Mark the System Boundary
 
@@ -40,10 +41,10 @@ What is included in the software unit-test? What is not? Fill this table.
 |---------------------------|---------------|---
 Battery Data-accuracy       | No            | We do not test the accuracy of data
 Computation of maximum      | Yes           | This is part of the software being developed
-Off-the-shelf PDF converter | _enter Yes/No | _enter reasoning
-Counting the breaches       | _enter Yes/No | _enter reasoning
-Detecting trends            | _enter Yes/No | _enter reasoning
-Notification utility        | _enter Yes/No | _enter reasoning
+Off-the-shelf PDF converter | Yes           | To store the analysis from the csv to the PDF
+Counting the breaches       | Yes           | For checking when When battery parameters crossess the threshold
+Detecting trends            | Yes           | Whenever the reading continuously increases for 30 minutes, for Date and Time
+Notification utility        | Yes           | To get the information about the off limits/ high values so that appropriate actions can be taken for the battery
 
 ### List the Test Cases
 
